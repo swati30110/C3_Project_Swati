@@ -68,7 +68,7 @@ public class Restaurant {
         return name;
     }
     /* Added a new method to get total Price for given item*/
-    public int getTotalAmount(String...items){
+    public int getTotalAmount(String...items) throws ItemNotFoundException{
         Item item;
         int amount = 0 ;
         for (String itemName : items){

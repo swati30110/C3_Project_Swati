@@ -76,10 +76,12 @@ class RestaurantTest {
     * For the method to give total amount after selecting the items
     * Failed case scenario will be when item name will be passed when it's not available in the menu*/
     @Test
-    public void return_total_amount_of_added_items(){
+    public void return_total_amount_of_added_items() throws ItemNotFoundException{
         createRestaurant();
-        int amount = restaurant.getTotalAmount("Chicken soup","Vegetable lasagne");
+        int amount = restaurant.getTotalAmount("Sweet corn soup","Vegetable lasagne");
         assertNotNull(amount);
-        assertThat(269,equalTo(amount));
+        assertThat(388,equalTo(amount));
+        assertThrows(ItemNotFoundException.class,
+                ()->restaurant.getTotalAmount("French fries"));
     }
 }
