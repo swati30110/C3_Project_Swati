@@ -1,12 +1,9 @@
-import javafx.beans.binding.When;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.stubbing.Answer;
-
 import java.time.LocalTime;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestaurantTest {
@@ -74,5 +71,14 @@ class RestaurantTest {
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
+    //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    /*TDD
+    * For the method to give total amount after selecting the items */
+    @Test
+    public void return_total_amount_of_added_items(){
+        createRestaurant();
+        int amount = restaurant.getTotalAmount("Sweet corn soup","Vegetable lasagne");
+        assertNotNull(amount);
+        assertThat(388,equalTo(amount));
+    }
 }
