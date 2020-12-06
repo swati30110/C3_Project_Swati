@@ -73,12 +73,13 @@ class RestaurantTest {
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     /*TDD
-    * For the method to give total amount after selecting the items */
+    * For the method to give total amount after selecting the items
+    * Failed case scenario will be when item name will be passed when it's not available in the menu*/
     @Test
     public void return_total_amount_of_added_items(){
         createRestaurant();
-        int amount = restaurant.getTotalAmount("Sweet corn soup","Vegetable lasagne");
+        int amount = restaurant.getTotalAmount("Chicken soup","Vegetable lasagne");
         assertNotNull(amount);
-        assertThat(388,equalTo(amount));
+        assertThat(269,equalTo(amount));
     }
 }
