@@ -74,9 +74,11 @@ class RestaurantTest {
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     /*TDD
     * For the method to give total amount after selecting the items
-    * Failed case scenario will be when item name will be passed when it's not available in the menu*/
+    * Failed case scenario will be when item name will be passed when it's not available in the menu
+    * When Item is not available it should throw Item not found Exception
+    * For valid item it should return total amount of the item selected*/
     @Test
-    public void return_total_amount_of_added_items() throws ItemNotFoundException{
+    public void return_total_amount_of_added_items_throw_exception_for_item_not_available_in_menu() throws ItemNotFoundException{
         createRestaurant();
         int amount = restaurant.getTotalAmount("Sweet corn soup","Vegetable lasagne");
         assertNotNull(amount);

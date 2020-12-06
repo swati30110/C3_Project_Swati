@@ -73,7 +73,10 @@ public class Restaurant {
         int amount = 0 ;
         for (String itemName : items){
             item = findItemByName(itemName);
-            amount += item.getPrice();
+            if(item !=null)
+                amount += item.getPrice();
+            else
+                throw new ItemNotFoundException("Item not Found Exception");
         }
         return amount;
     }
